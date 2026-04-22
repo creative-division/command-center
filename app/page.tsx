@@ -214,7 +214,7 @@ export default function HomePage() {
 
       <main className="flex-1 px-4 sm:px-6 lg:px-8 py-4">
         {/* Glass panel */}
-        <div className="glass rounded-3xl px-6 sm:px-8 py-8 mb-6">
+        <div className="glass rounded-3xl px-6 sm:px-10 py-8 mb-6 max-w-3xl mx-auto">
           {sortedCategories.map((cat) => {
             const categoryApps = filteredApps.filter((a) => a.categoryId === cat.id);
             if (search && categoryApps.length === 0) return null;

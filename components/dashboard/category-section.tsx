@@ -91,9 +91,9 @@ export function CategorySection({
   }
 
   return (
-    <section className="mb-10">
+    <section className="mb-8">
       {/* Header */}
-      <div className="flex items-center gap-3 mb-4 group">
+      <div className="flex items-center justify-center gap-3 mb-4 group relative">
         {!readOnly && (
           <GripVertical className="w-4 h-4 text-white/20 opacity-0 group-hover:opacity-100 transition-opacity cursor-grab" />
         )}
@@ -112,7 +112,7 @@ export function CategorySection({
         <span className="text-xs text-white/20 font-mono">{apps.length}</span>
 
         {!readOnly && (
-          <div className="flex items-center gap-1 ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
+          <div className="flex items-center gap-1 absolute right-0 opacity-0 group-hover:opacity-100 transition-opacity">
             <Button
               variant="ghost"
               size="icon"
@@ -149,7 +149,7 @@ export function CategorySection({
       ) : (
         <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
           <SortableContext items={sortedApps.map((a) => a.id)} strategy={rectSortingStrategy}>
-            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 gap-y-8 gap-x-2 place-items-center">
+            <div className="flex flex-wrap justify-center gap-x-6 gap-y-5">
               {sortedApps.map((app) => (
                 <AppCard
                   key={app.id}
