@@ -55,17 +55,17 @@
 
   --background: oklch(0.1 0.015 270);
   --foreground: oklch(0.95 0 0);
-  --card: oklch(0.15 0.01 270 / 60%);
+  --card: oklch(0.15 0.01 270);
   --card-foreground: oklch(0.95 0 0);
-  --popover: oklch(0.14 0.015 270 / 95%);
+  --popover: oklch(0.14 0.015 270);
   --popover-foreground: oklch(0.95 0 0);
   --primary: var(--cyan);
   --primary-foreground: oklch(0.1 0 0);
-  --secondary: oklch(0.18 0.01 270 / 80%);
+  --secondary: oklch(0.18 0.01 270);
   --secondary-foreground: oklch(0.9 0 0);
-  --muted: oklch(0.2 0.01 270 / 60%);
+  --muted: oklch(0.2 0.01 270);
   --muted-foreground: oklch(0.65 0 0);
-  --accent: oklch(0.18 0.01 270 / 80%);
+  --accent: oklch(0.18 0.01 270);
   --accent-foreground: oklch(0.95 0 0);
   --destructive: oklch(0.65 0.2 25);
   --border: oklch(1 0 0 / 8%);
@@ -131,11 +131,10 @@
   border: 1px solid oklch(1 0 0 / 8%);
 }
 
+/* Solid opaque panel — for dropdowns, modals, overlays that need legibility */
 .glass-strong {
-  background: oklch(1 0 0 / 6%);
-  backdrop-filter: blur(32px);
-  -webkit-backdrop-filter: blur(32px);
-  border: 1px solid oklch(1 0 0 / 10%);
+  background: oklch(0.14 0.015 270);
+  border: 1px solid oklch(1 0 0 / 12%);
 }
 
 /* Status dot colors */

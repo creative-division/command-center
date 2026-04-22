@@ -168,9 +168,9 @@ export function AppCard({ app, categories, onEdit, onDuplicate, onDelete, onMove
         </div>
         {/* Status badge */}
         {app.status && app.status !== "none" && (
-          <div className="absolute -top-1 -right-1 glass rounded-full px-1.5 py-0.5 flex items-center gap-1">
-            <div className={`w-1.5 h-1.5 rounded-full ${getStatusColor(app.status)}`} />
-            <span className="text-[9px] font-medium tracking-tight text-white/70">{getStatusLabel(app.status)}</span>
+          <div className="absolute -top-1.5 -right-1.5 rounded-full px-2 py-0.5 flex items-center gap-1.5" style={{ background: "oklch(0.15 0.01 270)", border: "1px solid oklch(1 0 0 / 12%)" }}>
+            <div className={`w-2 h-2 rounded-full ${getStatusColor(app.status)}`} />
+            <span className="text-[10px] font-semibold tracking-tight text-white/90">{getStatusLabel(app.status)}</span>
           </div>
         )}
       </div>
