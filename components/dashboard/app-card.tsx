@@ -144,10 +144,10 @@ export function AppCard({ app, categories, onEdit, onDuplicate, onDelete, onMove
   const otherCategories = categories.filter((c) => c.id !== app.categoryId);
 
   const cardVisual = (
-    <div className="flex flex-col items-center gap-2.5 group cursor-pointer select-none">
+    <div className="flex flex-col items-center gap-2 group cursor-pointer select-none w-[100px]">
       <div className="relative">
         <div
-          className="w-[72px] h-[72px] rounded-[18px] overflow-hidden flex items-center justify-center transition-all duration-200 ring-1 ring-white/[0.06] group-hover:-translate-y-1 group-hover:ring-white/[0.12] group-hover:shadow-xl group-hover:shadow-black/30"
+          className="w-[88px] h-[88px] rounded-[22px] overflow-hidden flex items-center justify-center transition-all duration-200 ring-1 ring-white/[0.06] group-hover:-translate-y-1 group-hover:ring-white/[0.12] group-hover:shadow-xl group-hover:shadow-black/30"
           style={{
             background: (showFallback || !iconSrc)
               ? getGradient(app.name)
@@ -155,7 +155,7 @@ export function AppCard({ app, categories, onEdit, onDuplicate, onDelete, onMove
           }}
         >
           {showFallback || !iconSrc ? (
-            <span className="text-[1.625rem] font-bold text-white drop-shadow-sm">{app.name.charAt(0).toUpperCase()}</span>
+            <span className="text-[2rem] font-bold text-white drop-shadow-sm">{app.name.charAt(0).toUpperCase()}</span>
           ) : (
             <img
               src={iconSrc}
@@ -175,7 +175,7 @@ export function AppCard({ app, categories, onEdit, onDuplicate, onDelete, onMove
         )}
       </div>
       {/* Name */}
-      <span className="text-[11px] font-medium text-center text-white/70 max-w-[84px] truncate leading-tight">
+      <span className="text-[11px] font-medium text-center text-white/70 w-full leading-tight line-clamp-2">
         {highlightText(app.name, highlight)}
       </span>
     </div>
