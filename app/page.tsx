@@ -12,6 +12,7 @@ import { ShareModal } from "@/components/dashboard/share-modal";
 import { DeleteConfirm } from "@/components/dashboard/delete-confirm";
 import { FooterStrip } from "@/components/dashboard/footer-strip";
 import { CornerBadge } from "@/components/creative-division/corner-badge";
+import { MouseBackground } from "@/components/dashboard/mouse-background";
 import type { AppItem } from "@/lib/types";
 
 export default function HomePage() {
@@ -161,7 +162,9 @@ export default function HomePage() {
   }
 
   return (
-    <div className="flex-1 flex flex-col min-h-screen">
+    <div className="flex-1 flex flex-col min-h-screen relative">
+      <MouseBackground />
+
       {/* Top bar */}
       <header className="sticky top-0 z-30 px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex items-center gap-4">
@@ -210,33 +213,36 @@ export default function HomePage() {
       </header>
 
       <main className="flex-1 px-4 sm:px-6 lg:px-8 py-4">
-        {sortedCategories.map((cat) => {
-          const categoryApps = filteredApps.filter((a) => a.categoryId === cat.id);
-          if (search && categoryApps.length === 0) return null;
-          return (
-            <CategorySection
-              key={cat.id}
-              category={cat}
-              apps={categoryApps}
-              allCategories={sortedCategories}
-              onAddApp={handleAddApp}
-              onEditApp={handleEditApp}
-              onDuplicateApp={dashboard.duplicateApp}
-              onDeleteApp={handleDeleteApp}
-              onMoveApp={dashboard.moveApp}
-              onReorderApps={dashboard.reorderApps}
-              onRenameCategory={dashboard.renameCategory}
-              onDeleteCategory={handleDeleteCategory}
-              highlight={search}
-            />
-          );
-        })}
+        {/* Glass panel */}
+        <div className="glass rounded-3xl px-6 sm:px-8 py-8 mb-6">
+          {sortedCategories.map((cat) => {
+            const categoryApps = filteredApps.filter((a) => a.categoryId === cat.id);
+            if (search && categoryApps.length === 0) return null;
+            return (
+              <CategorySection
+                key={cat.id}
+                category={cat}
+                apps={categoryApps}
+                allCategories={sortedCategories}
+                onAddApp={handleAddApp}
+                onEditApp={handleEditApp}
+                onDuplicateApp={dashboard.duplicateApp}
+                onDeleteApp={handleDeleteApp}
+                onMoveApp={dashboard.moveApp}
+                onReorderApps={dashboard.reorderApps}
+                onRenameCategory={dashboard.renameCategory}
+                onDeleteCategory={handleDeleteCategory}
+                highlight={search}
+              />
+            );
+          })}
 
-        {filteredApps.length === 0 && search && (
-          <div className="flex flex-col items-center justify-center py-20 text-center">
-            <p className="text-white/30 text-sm">No apps match &ldquo;{search}&rdquo;</p>
-          </div>
-        )}
+          {filteredApps.length === 0 && search && (
+            <div className="flex flex-col items-center justify-center py-20 text-center">
+              <p className="text-white/30 text-sm">No apps match &ldquo;{search}&rdquo;</p>
+            </div>
+          )}
+        </div>
 
         <FooterStrip
           totalApps={dashboard.totalApps}

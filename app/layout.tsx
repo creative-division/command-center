@@ -39,7 +39,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col gradient-mesh">
+      <body className="min-h-full flex flex-col bg-[oklch(0.06_0.015_270)]">
         {children}
         <Toaster
           position="bottom-center"
