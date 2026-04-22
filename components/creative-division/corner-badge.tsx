@@ -10,7 +10,7 @@ export function CornerBadge() {
       href="https://creativedivision.io"
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-4 right-4 z-50 flex items-center gap-2 rounded-full px-3 py-1.5 glass transition-all duration-300 no-underline"
+      className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2 rounded-full px-3 py-1.5 glass transition-all duration-300 no-underline"
       style={{
         filter: hovered ? "brightness(1.3)" : "brightness(1)",
       }}
